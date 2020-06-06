@@ -1,16 +1,9 @@
-# whatsapp_help
+# WhatsApp Aid
 
-A new Flutter project.
+Did you ever find it annoying to have to add a contact to be able to send a WhatsApp message? Be it for a delivery person or even a house help?
 
-## Getting Started
+This is perhaps for you! You just need to specify the number in the text box and click on the button to open your WhatsApp without having to add the person to contact.
 
-This project is a starting point for a Flutter application.
+## Note
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app is not yet available on the Google PlayStore, I made this for my learning and not proud of the UX. If you choose to use this, please download it from under teh "RELEASES" folder above.
