@@ -6,9 +6,7 @@ This is perhaps for you! You just need to specify the number in the text box and
 
 ## Feature Demo
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/eXyAxHVpm-8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
+[<img src="https://i.imgur.com/jPxrrCJ.gif" width="100%">](https://youtu.be/eXyAxHVpm-8)
 
 ## Note
 
