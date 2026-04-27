@@ -9,7 +9,8 @@ void main() {
 
     expect(find.text('WhatsApp Aid'), findsOneWidget);
     expect(find.byType(TextField), findsOneWidget);
-    expect(find.text('Enter a phone number, like +9199000XXXXX'), findsOneWidget);
+    expect(
+        find.text('Enter a phone number, like +9199000XXXXX'), findsOneWidget);
     expect(find.byIcon(Icons.message), findsOneWidget);
   });
 }

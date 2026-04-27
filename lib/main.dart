@@ -30,7 +30,8 @@ class WhatsAppHelperForm extends StatefulWidget {
 
 class _WhatsAppHelperFormState extends State<WhatsAppHelperForm> {
   _fireBrowser() async {
-    String url = "https://wa.me/" + txtEditController.text.substring(1, txtEditController.text.length);
+    String url = "https://wa.me/" +
+        txtEditController.text.substring(1, txtEditController.text.length);
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -62,7 +63,7 @@ class _WhatsAppHelperFormState extends State<WhatsAppHelperForm> {
               controller: txtEditController,
               autofocus: true,
               decoration: InputDecoration(
-                hintText: 'Enter a phone number, like +9199000XXXXX'
+                hintText: 'Enter a phone number, like +9199000XXXXX',
               ),
             ),
           ],
