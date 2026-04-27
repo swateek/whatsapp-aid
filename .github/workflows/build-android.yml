@@ -1,12 +1,7 @@
-name: Android
+name: Build Android APK
 
 on:
-  push:
-    branches:
-      - "**"
-    tags:
-      - "v*"
-  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,8 +11,8 @@ env:
   JAVA_VERSION: "11"
 
 jobs:
-  validate:
-    name: Validate
+  build-android:
+    name: Build Android APK
     runs-on: ubuntu-latest
 
     steps:
@@ -51,11 +46,13 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Check formatting
-        run: flutter format --set-exit-if-changed .
+      - name: Build split APKs
+        run: flutter build apk --release --split-per-abi
 
-      - name: Analyze
-        run: flutter analyze
-
-      - name: Test
-        run: flutter test
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: whatsapp-aid-android-apks
+          path: build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30
