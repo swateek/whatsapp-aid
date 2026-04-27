@@ -87,7 +87,9 @@ jobs:
           pub-cache: true
 
       - name: Install Android NDK
-        run: yes | sdkmanager --install "ndk;${ANDROID_NDK_VERSION}"
+        run: |
+          ANDROID_SDK_ROOT="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          yes | "${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" --install "ndk;${ANDROID_NDK_VERSION}"
 
       - name: Cache Gradle
         uses: actions/cache@v5
