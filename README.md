@@ -4,6 +4,32 @@ Did you ever find it annoying to have to add a contact to be able to send a What
 
 This is perhaps for you! You just need to specify the number in the text box and click on the button to open your WhatsApp without having to add the person to contact.
 
+## Development
+
+This project is intentionally still on its original Flutter/Dart dependency set. SDK and package upgrades are planned separately from the repository hygiene work.
+
+Run the basic local checks before opening a pull request:
+
+```sh
+flutter pub get
+flutter analyze
+flutter test
+```
+
+Build Android APKs locally with:
+
+```sh
+flutter build apk --release --split-per-abi
+```
+
+## Distribution Builds
+
+Android distribution APKs are built by GitHub Actions instead of being committed to the repository.
+
+- Pull requests and branch pushes run validation only.
+- Tag pushes matching `v*` build APK artifacts automatically.
+- Non-tag APK builds can be started manually from the `Android` workflow in GitHub Actions.
+
 ## Feature Demo
 
 <!-- [<img src="https://i.imgur.com/jPxrrCJ.gif" width="100%">](https://youtu.be/eXyAxHVpm-8) -->
@@ -11,4 +37,4 @@ This is perhaps for you! You just need to specify the number in the text box and
 
 ## Note
 
-This app is not yet available on the Google PlayStore, I made this for my learning and not proud of the UX. If you choose to use this, please download it from under teh "RELEASES" folder above.
+This app is not yet available on the Google Play Store. If you choose to use it, download the APK artifact from a tagged or manually run GitHub Actions workflow.
