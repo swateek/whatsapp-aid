@@ -13,13 +13,15 @@ permissions:
   contents: read
 
 env:
-  FLUTTER_VERSION: "1.17.5"
-  JAVA_VERSION: "11"
+  JAVA_VERSION: "17"
 
 jobs:
   validate:
     name: Validate
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
 
     steps:
       - name: Checkout repository
@@ -35,9 +37,11 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
           pub-cache: true
+
+      - name: Show Flutter and Dart versions
+        run: flutter --version
 
       - name: Cache Gradle
         uses: actions/cache@v5
@@ -45,7 +49,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('android/**/*.gradle', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('app/android/**/*.gradle', 'app/android/gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
@@ -53,7 +57,7 @@ jobs:
         run: flutter pub get
 
       - name: Check formatting
-        run: flutter format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
 
       - name: Analyze
         run: flutter analyze
@@ -66,6 +70,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: validate
     if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    defaults:
+      run:
+        working-directory: app
 
     steps:
       - name: Checkout repository
@@ -81,9 +88,11 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
           pub-cache: true
+
+      - name: Show Flutter and Dart versions
+        run: flutter --version
 
       - name: Cache Gradle
         uses: actions/cache@v5
@@ -91,7 +100,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('android/**/*.gradle', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('app/android/**/*.gradle', 'app/android/gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
@@ -105,6 +114,6 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: whatsapp-aid-android-apks
-          path: build/app/outputs/flutter-apk/*.apk
+          path: app/build/app/outputs/flutter-apk/*.apk
           if-no-files-found: error
           retention-days: 30
