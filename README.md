@@ -11,6 +11,7 @@ This project is intentionally still on its original Flutter/Dart dependency set.
 Run the basic local checks before opening a pull request:
 
 ```sh
+cd app
 flutter pub get
 flutter analyze
 flutter test
@@ -19,6 +20,7 @@ flutter test
 Build Android APKs locally with:
 
 ```sh
+cd app
 flutter build apk --release --split-per-abi
 ```
 

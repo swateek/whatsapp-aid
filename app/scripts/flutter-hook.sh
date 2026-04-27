@@ -11,4 +11,5 @@ EOF
   exit 0
 fi
 
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 exec flutter "$@"

@@ -12,9 +12,9 @@
 # Local environment/configuration
 .env
 .env.*
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
 
 # IntelliJ related
 *.iml
@@ -29,16 +29,16 @@
 
 # Flutter/Dart/Pub related
 **/doc/api/
-.dart_tool/
+app/.dart_tool/
 .pub-cache/
 .pub/
-/build/
-android/local.properties
-android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
-ios/Flutter/Generated.xcconfig
-ios/Flutter/flutter_export_environment.sh
-ios/Flutter/ephemeral/
-ios/Runner/GeneratedPluginRegistrant.*
+app/build/
+app/android/local.properties
+app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+app/ios/Flutter/Generated.xcconfig
+app/ios/Flutter/flutter_export_environment.sh
+app/ios/Flutter/ephemeral/
+app/ios/Runner/GeneratedPluginRegistrant.*
 
 # Distribution outputs
 *.apk
@@ -47,7 +47,7 @@ ios/Runner/GeneratedPluginRegistrant.*
 *.app
 
 # Web related
-lib/generated_plugin_registrant.dart
+app/lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
