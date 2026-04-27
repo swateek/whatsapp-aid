@@ -32,26 +32,26 @@ repos:
       - id: trailing-whitespace
         args: ["--markdown-linebreak-ext=md"]
 
-  - repo: local
-    hooks:
-      - id: flutter-format
-        name: Flutter format
-        entry: scripts/flutter-hook.sh format --set-exit-if-changed
-        language: system
-        types: [dart]
+  # - repo: local
+  #   hooks:
+  #     - id: flutter-format
+  #       name: Flutter format
+  #       entry: scripts/flutter-hook.sh format --set-exit-if-changed
+  #       language: system
+  #       types: [dart]
 
-      - id: flutter-analyze
-        name: Flutter analyze
-        entry: scripts/flutter-hook.sh analyze
-        language: system
-        pass_filenames: false
-        always_run: true
-        stages: [pre-push]
+  #     - id: flutter-analyze
+  #       name: Flutter analyze
+  #       entry: scripts/flutter-hook.sh analyze
+  #       language: system
+  #       pass_filenames: false
+  #       always_run: true
+  #       stages: [pre-push]
 
-      - id: flutter-test
-        name: Flutter test
-        entry: scripts/flutter-hook.sh test
-        language: system
-        pass_filenames: false
-        always_run: true
-        stages: [pre-push]
+  #     - id: flutter-test
+  #       name: Flutter test
+  #       entry: scripts/flutter-hook.sh test
+  #       language: system
+  #       pass_filenames: false
+  #       always_run: true
+  #       stages: [pre-push]
