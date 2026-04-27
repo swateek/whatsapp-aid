@@ -1,0 +1,57 @@
+minimum_pre_commit_version: "3.5.0"
+
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+
+exclude: |
+  (?x)^(
+    build/|
+    \.dart_tool/|
+    \.gradle/|
+    android/\.gradle/|
+    ios/Pods/|
+    RELEASES/
+  )
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=2048"]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-json
+      - id: check-xml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md"]
+
+  # - repo: local
+  #   hooks:
+  #     - id: flutter-format
+  #       name: Flutter format
+  #       entry: scripts/flutter-hook.sh format --set-exit-if-changed
+  #       language: system
+  #       types: [dart]
+
+  #     - id: flutter-analyze
+  #       name: Flutter analyze
+  #       entry: scripts/flutter-hook.sh analyze
+  #       language: system
+  #       pass_filenames: false
+  #       always_run: true
+  #       stages: [pre-push]
+
+  #     - id: flutter-test
+  #       name: Flutter test
+  #       entry: scripts/flutter-hook.sh test
+  #       language: system
+  #       pass_filenames: false
+  #       always_run: true
+  #       stages: [pre-push]
